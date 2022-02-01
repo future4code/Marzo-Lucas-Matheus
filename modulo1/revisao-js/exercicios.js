@@ -29,7 +29,15 @@ function retornaNumerosPares(array) {
 }
 
 // EXERCÍCIO 05
-function retornaNumerosParesElevadosADois(array) {}
+function retornaNumerosParesElevadosADois(array) {
+  const arrayParQuadrado = [];
+  array.forEach((arr) => {
+    if (arr % 2 === 0) {
+      arrayParQuadrado.push(arr ** 2);
+    }
+  });
+  return arrayParQuadrado;
+}
 
 // EXERCÍCIO 06
 function retornaMaiorNumero(array) {}
