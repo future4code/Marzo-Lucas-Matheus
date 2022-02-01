@@ -117,7 +117,17 @@ function retornaPessoasNaoAutorizadas(pessoas) {
 }
 
 // EXERCÍCIO 14
-function retornaContasComSaldoAtualizado(contas) {}
+function retornaContasComSaldoAtualizado(contas) {
+  return contas.map((conta) => {
+    let valorCompras = 0;
+    conta.compras.map((compra) => (valorCompras += compra));
+    return {
+      cliente: conta.cliente,
+      saldoTotal: conta.saldoTotal - valorCompras,
+      compras: [],
+    };
+  });
+}
 
 // EXERCÍCIO 15A
 function retornaArrayOrdenadoAlfabeticamente(consultas) {}
