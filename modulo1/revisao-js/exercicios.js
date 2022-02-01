@@ -18,7 +18,15 @@ function retornaArrayOrdenado(array) {
 }
 
 // EXERCÍCIO 04
-function retornaNumerosPares(array) {}
+function retornaNumerosPares(array) {
+  const arrayPar = [];
+  array.forEach((arr) => {
+    if (arr % 2 === 0) {
+      arrayPar.push(arr);
+    }
+  });
+  return arrayPar;
+}
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {}
