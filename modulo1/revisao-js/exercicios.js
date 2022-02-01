@@ -93,7 +93,14 @@ function retornaChamadaDeFilme(filme) {
 }
 
 // EXERCÍCIO 12
-function retornaPessoaAnonimizada(pessoa) {}
+function retornaPessoaAnonimizada(pessoa) {
+  return {
+    nome: "ANÔNIMO",
+    idade: pessoa.idade,
+    email: pessoa.email,
+    endereco: pessoa.endereco,
+  };
+}
 
 // EXERCÍCIO 13A
 function retornaPessoasAutorizadas(pessoas) {}
