@@ -40,7 +40,9 @@ function retornaNumerosParesElevadosADois(array) {
 }
 
 // EXERCÍCIO 06
-function retornaMaiorNumero(array) {}
+function retornaMaiorNumero(array) {
+  return array.reduce((a, b) => Math.max(a, b));
+}
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {}
