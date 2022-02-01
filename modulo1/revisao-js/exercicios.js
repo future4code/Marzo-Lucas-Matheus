@@ -103,7 +103,11 @@ function retornaPessoaAnonimizada(pessoa) {
 }
 
 // EXERCÍCIO 13A
-function retornaPessoasAutorizadas(pessoas) {}
+function retornaPessoasAutorizadas(pessoas) {
+  return pessoas.filter(
+    (pessoa) => pessoa.idade > 14 && pessoa.idade < 60 && pessoa.altura >= 1.5
+  );
+}
 
 // EXERCÍCIO 13B
 function retornaPessoasNaoAutorizadas(pessoas) {}
