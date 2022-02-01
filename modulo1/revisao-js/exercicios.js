@@ -3,7 +3,9 @@
 //    -> NÃO MODIFIQUE OS PARÂMETROS DAS FUNÇÕES!!! ()
 
 // EXERCÍCIO 01
-function retornaTamanhoArray(array) {}
+function retornaTamanhoArray(array) {
+  return array.length;
+}
 
 // EXERCÍCIO 02
 function retornaArrayInvertido(array) {}
