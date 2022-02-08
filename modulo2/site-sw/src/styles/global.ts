@@ -22,6 +22,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 2rem;
     display: flex;
     justify-content: center;
+    text-align: center;
   }
 
   body, input, text-area, button {
@@ -31,6 +32,7 @@ export const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6, strong {
     font-weight: 700;
+    margin: 0.5rem;
   }
 
   button {

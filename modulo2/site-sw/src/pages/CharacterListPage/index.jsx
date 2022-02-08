@@ -8,24 +8,23 @@ export const CharacterListPage = () => {
 
   const [characterList, setCharacterList] = useState([]);
 
-  function getCharacterList() {
+  useEffect(() => {
     api.get("people").then((response) => {
-      console.log(response.data.results);
       setCharacterList(response.data.results);
     });
-  }
-
-  useEffect(() => {
-    getCharacterList();
   }, []);
 
   return (
     <Container>
-      {characterList.map((char) => (
-        <p key={char.name}>{char.name}</p>
-      ))}
-
-      <button onClick={() => navigate(`/details/a`)}>List</button>
+      {characterList ? (
+        characterList.map((char, index) => (
+          <p key={char.name} onClick={() => navigate(`/details/${index + 1}`)}>
+            {char.name}
+          </p>
+        ))
+      ) : (
+        <p>Carregando...</p>
+      )}
     </Container>
   );
 };
