@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Card } from "../components/Card";
 import { api } from "../services/api";
 import person from "../assets/person.png";
+import { CircleSpinner } from "react-spinners-kit";
 
 const Container = styled.div`
   display: flex;
@@ -19,17 +20,25 @@ const Grid = styled.div`
 
 export const PeoplePage = () => {
   const [people, setPeople] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    api.get("people").then(({ data }) => setPeople(data.results));
+    api.get("people").then(({ data }) => {
+      setPeople(data.results);
+      setLoading(false);
+    });
   }, []);
 
   return (
     <Container>
       <Grid>
-        {people.map(({ name }) => (
-          <Card name={name} image={person} />
-        ))}
+        {loading ? (
+          <CircleSpinner size={100} color="#686769" loading={loading} />
+        ) : (
+          people.map(({ name }) => (
+            <Card key={name} name={name} image={person} />
+          ))
+        )}
       </Grid>
     </Container>
   );
