@@ -8,6 +8,8 @@ export const Container = styled.nav`
   align-items: center;
   color: #fff;
   background: var(--blue);
+  position: sticky;
+  top: 0;
 
   h1 {
     font-size: 1.5rem;
