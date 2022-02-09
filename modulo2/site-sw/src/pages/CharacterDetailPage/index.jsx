@@ -6,7 +6,6 @@ import { Container } from "./styles";
 export const CharacterDetailPage = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-
   const [details, setDetails] = useState([]);
   const [homeworldLink, setHomeworldLink] = useState("");
   const [homeworld, setHomeworld] = useState("");
