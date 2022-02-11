@@ -31,6 +31,7 @@ const App = () => {
   const [imagesUrl, setImagesUrl] = useState("");
   const [imageBackCard, setImageBackCard] = useState("");
   const [cards, setCards] = useState([]);
+  const [selectedCard, setSelectedCard] = useState(undefined);
 
   useEffect(() => {
     axios.get("tarot.json").then(({ data }) => {
@@ -67,6 +68,18 @@ const App = () => {
     });
   }
 
+  function onClickSelectCard(selectedCard) {
+    const newCards = cards.map((card) => {
+      if (selectedCard.name === card.name) {
+        return { ...selectedCard, visible: true };
+      }
+      return card;
+    });
+    setCards(newCards);
+    setSelectedCard(selectedCard);
+    console.log(selectedCard);
+  }
+
   return (
     <>
       <Header onClickStart={onClickStart} />
@@ -77,7 +90,11 @@ const App = () => {
               {card.visible ? (
                 <img src={`${imagesUrl}${card.image}`} alt="" />
               ) : (
-                <img className="image-back-card" src={imageBackCard} />
+                <img
+                  className="image-back-card"
+                  src={imageBackCard}
+                  onClick={() => onClickSelectCard(card)}
+                />
               )}
             </li>
           ))}
