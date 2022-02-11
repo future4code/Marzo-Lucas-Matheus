@@ -26,10 +26,10 @@ const Container = styled.header`
   }
 `;
 
-export const Header = () => {
+export const Header = ({ onClickStart }) => {
   return (
     <Container>
-      <button>Começar</button>
+      <button onClick={onClickStart}>Começar</button>
     </Container>
   );
 };

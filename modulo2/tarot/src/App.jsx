@@ -38,9 +38,29 @@ const App = () => {
     });
   }, []);
 
+  function shuffleCards(cards) {
+    const numberedArray = cards.map((card) => ({
+      ...card,
+      number: Math.random(),
+    }));
+    const sortedCards = numberedArray.sort((a, b) => a.number - b.number);
+    return sortedCards;
+  }
+
+  function makeCardsInvisible(cards) {
+    return cards.map((card) => ({ ...card, visible: false }));
+  }
+
+  function onClickStart() {
+    const shuffledArray = shuffleCards(cards);
+    const invisibleCards = makeCardsInvisible(shuffledArray);
+    setCards(invisibleCards);
+    alert("Cartas embaralhadas com sucesso.");
+  }
+
   return (
     <>
-      <Header />
+      <Header onClickStart={onClickStart} />
       <Container>
         <ul>
           {cards.map((card) => (
