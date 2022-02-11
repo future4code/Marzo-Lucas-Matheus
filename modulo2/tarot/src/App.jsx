@@ -14,6 +14,14 @@ const Container = styled.div`
     justify-items: center;
     grid-template-columns: repeat(6, 1fr);
     gap: 10px;
+
+    .image-back-card {
+      transition: 0.5s;
+      :hover {
+        transform: scale(1.1);
+        cursor: pointer;
+      }
+    }
   }
 `;
 
@@ -24,7 +32,6 @@ const App = () => {
 
   useEffect(() => {
     axios.get("tarot.json").then(({ data }) => {
-      console.log(data);
       setImagesUrl(data.imagesUrl);
       setImageBackCard(data.imageBackCard);
       setCards(data.cards.map((card) => ({ ...card, visible: true })));
@@ -38,7 +45,11 @@ const App = () => {
         <ul>
           {cards.map((card) => (
             <li key={card.name}>
-              <img src={`${imagesUrl}${card.image}`} alt="" />
+              {card.visible ? (
+                <img src={`${imagesUrl}${card.image}`} alt="" />
+              ) : (
+                <img className="image-back-card" src={imageBackCard} />
+              )}
             </li>
           ))}
         </ul>
