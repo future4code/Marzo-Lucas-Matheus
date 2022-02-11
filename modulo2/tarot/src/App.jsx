@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Header } from "./components/Header";
 import { GlobalStyle } from "./styles/global";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Container = styled.div`
   border: 1px solid red;
@@ -55,7 +57,14 @@ const App = () => {
     const shuffledArray = shuffleCards(cards);
     const invisibleCards = makeCardsInvisible(shuffledArray);
     setCards(invisibleCards);
-    alert("Cartas embaralhadas com sucesso.");
+    toast.success("🃏 Cartas embaralhadas com sucesso!", {
+      position: "top-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+    });
   }
 
   return (
@@ -74,6 +83,7 @@ const App = () => {
           ))}
         </ul>
       </Container>
+      <ToastContainer />
       <GlobalStyle />
     </>
   );
