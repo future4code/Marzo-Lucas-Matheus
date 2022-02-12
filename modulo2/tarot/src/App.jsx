@@ -9,7 +9,6 @@ import Modal from "react-modal";
 import { CardModal } from "./components/CardModal";
 
 const Container = styled.div`
-  border: 1px solid red;
   padding: 1rem 2rem;
 
   ul {
@@ -27,6 +26,14 @@ const Container = styled.div`
       }
     }
   }
+`;
+
+const Footer = styled.footer`
+  text-align: center;
+  padding: 0.5rem;
+  color: #fff;
+  background: #333;
+  font-weight: 600;
 `;
 
 Modal.setAppElement("#root");
@@ -115,6 +122,9 @@ const App = () => {
         isModalOpen={isModalOpen}
         handleCloseModal={handleCloseModal}
       />
+      <Footer>
+        Feito com 💙 por Lucas Fernandes &copy; {new Date().getFullYear()}
+      </Footer>
       <ToastContainer />
       <GlobalStyle />
     </>
