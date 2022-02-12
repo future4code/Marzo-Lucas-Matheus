@@ -1,52 +1,12 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import axios from "axios";
 import { Header } from "./components/Header";
 import { GlobalStyle } from "./styles/global";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Modal from "react-modal";
 import { CardModal } from "./components/CardModal";
-
-const Container = styled.div`
-  padding: 1rem 2rem;
-
-  @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
-    padding: 0 1rem;
-  }
-
-  ul {
-    list-style: none;
-    display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 10px;
-
-    @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    .image-back-card {
-      transition: 0.5s;
-      :hover {
-        transform: scale(1.1);
-        cursor: pointer;
-      }
-    }
-  }
-`;
-
-const Footer = styled.footer`
-  text-align: center;
-  padding: 0.5rem;
-  color: #fff;
-  background: #333;
-  font-weight: 600;
-`;
+import { Container, Footer } from "./App.styled";
 
 Modal.setAppElement("#root");
 

@@ -1,20 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
-import styled from "styled-components";
 import closeImg from "../assets/close.svg";
-
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  div {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin-left: 1rem;
-  }
-`;
+import { Container } from "./CardModal.styled";
 
 export const CardModal = ({
   isModalOpen,
