@@ -7,6 +7,18 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html {
+    @media(max-width: 1080px){
+      font-size: 93.75%;
+    }
+    @media(max-width: 720px){
+      font-size: 87.5%;
+    }
+    @media(max-width: 480px){
+      font-size: 75%;
+    }
+  }
+
   body {
     background: #f0f2f5;
     -webkit-font-smoothing: antialiased;
@@ -53,6 +65,14 @@ export const GlobalStyle = createGlobalStyle`
     padding: 3rem;
     position: relative;
     border-radius: 0.25rem;
+
+    img {
+      width: 100%;
+    }
+
+    @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+     max-width: 400px;
+    }
   }
 
   .react-modal-close {
