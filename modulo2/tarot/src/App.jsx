@@ -5,6 +5,8 @@ import { Header } from "./components/Header";
 import { GlobalStyle } from "./styles/global";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Modal from "react-modal";
+import { CardModal } from "./components/CardModal";
 
 const Container = styled.div`
   border: 1px solid red;
@@ -27,11 +29,14 @@ const Container = styled.div`
   }
 `;
 
+Modal.setAppElement("#root");
+
 const App = () => {
   const [imagesUrl, setImagesUrl] = useState("");
   const [imageBackCard, setImageBackCard] = useState("");
   const [cards, setCards] = useState([]);
   const [selectedCard, setSelectedCard] = useState(undefined);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     axios.get("tarot.json").then(({ data }) => {
@@ -68,6 +73,10 @@ const App = () => {
     });
   }
 
+  function handleCloseModal() {
+    setIsModalOpen(false);
+  }
+
   function onClickSelectCard(selectedCard) {
     const newCards = cards.map((card) => {
       if (selectedCard.name === card.name) {
@@ -77,7 +86,7 @@ const App = () => {
     });
     setCards(newCards);
     setSelectedCard(selectedCard);
-    console.log(selectedCard);
+    setIsModalOpen(true);
   }
 
   return (
@@ -100,6 +109,12 @@ const App = () => {
           ))}
         </ul>
       </Container>
+      <CardModal
+        selectedCard={selectedCard}
+        imagesUrl={imagesUrl}
+        isModalOpen={isModalOpen}
+        handleCloseModal={handleCloseModal}
+      />
       <ToastContainer />
       <GlobalStyle />
     </>
