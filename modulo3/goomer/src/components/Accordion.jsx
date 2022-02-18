@@ -10,7 +10,11 @@ import {
 } from "@chakra-ui/react";
 import { DetailspageCard } from "../components";
 
-export const AccordionContainer = ({ restaurantDetails, group }) => {
+export const AccordionContainer = ({
+  restaurantDetails,
+  group,
+  filterFoods,
+}) => {
   return (
     <Accordion w="100%" allowToggle>
       <AccordionItem>
@@ -26,6 +30,7 @@ export const AccordionContainer = ({ restaurantDetails, group }) => {
           <SimpleGrid columns={[1, 2]} gap={4}>
             {restaurantDetails
               .filter((food) => food.group.toUpperCase() === group)
+              .filter(filterFoods)
               .map((food) => (
                 <DetailspageCard food={food} />
               ))}
