@@ -25,36 +25,25 @@ export const Detailspage = () => {
 
   return (
     <Container centerContent maxW="container.lg">
-      {
-        loading ? (
-          <Spinner
-            thickness="10px"
-            speed="0.65s"
-            emptyColor="gray.200"
-            color="#009CA3"
-            size="xl"
-          />
-        ) : (
-          restaurantGroup
-            .filter((group, i) => restaurantGroup.indexOf(group) === i)
-            .map((group, index) => (
-              <AccordionContainer
-                key={index}
-                restaurantDetails={restaurantDetails}
-                group={group}
-              />
-            ))
-        )
-        // restaurantGroup
-        // .filter((group, i) => restaurantGroup.indexOf(group) === i)
-        // .map((group, index) => (
-        //   <AccordionContainer
-        //     key={index}
-        //     restaurantDetails={restaurantDetails}
-        //     group={group}
-        //   />
-        // ))
-      }
+      {loading ? (
+        <Spinner
+          thickness="10px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="#009CA3"
+          size="xl"
+        />
+      ) : (
+        restaurantGroup
+          .filter((group, i) => restaurantGroup.indexOf(group) === i)
+          .map((group, index) => (
+            <AccordionContainer
+              key={index}
+              restaurantDetails={restaurantDetails}
+              group={group}
+            />
+          ))
+      )}
     </Container>
   );
 };

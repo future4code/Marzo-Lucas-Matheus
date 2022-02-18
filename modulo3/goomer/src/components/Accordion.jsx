@@ -6,7 +6,9 @@ import {
   AccordionItem,
   AccordionPanel,
   Box,
+  SimpleGrid,
 } from "@chakra-ui/react";
+import { DetailspageCard } from "../components";
 
 export const AccordionContainer = ({ restaurantDetails, group }) => {
   return (
@@ -21,11 +23,13 @@ export const AccordionContainer = ({ restaurantDetails, group }) => {
           </AccordionButton>
         </h2>
         <AccordionPanel pb={4}>
-          {restaurantDetails
-            .filter((food) => food.group.toUpperCase() === group)
-            .map((food) => (
-              <p>{food.name}</p>
-            ))}
+          <SimpleGrid columns={[1, 2]} gap={4}>
+            {restaurantDetails
+              .filter((food) => food.group.toUpperCase() === group)
+              .map((food) => (
+                <DetailspageCard food={food} />
+              ))}
+          </SimpleGrid>
         </AccordionPanel>
       </AccordionItem>
     </Accordion>
