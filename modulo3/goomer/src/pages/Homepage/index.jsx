@@ -27,7 +27,7 @@ export const Homepage = ({ restaurants, loading }) => {
       <Heading my="8" color="#404040" size="lg">
         Bem-vindo ao Lista Rango
       </Heading>
-      <InputGroup my="8" size="md" w="80%" boxShadow="0px 2px 4px #00000029">
+      <InputGroup mb="8" size="md" w="80%" boxShadow="0px 2px 4px #00000029">
         <Input
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
@@ -46,7 +46,7 @@ export const Homepage = ({ restaurants, loading }) => {
           size="xl"
         />
       ) : (
-        <SimpleGrid my="8" columns={[1, 2, 3]} spacing={[4, 8]}>
+        <SimpleGrid columns={[1, 2, 3]} spacing={[4, 8]}>
           {restaurants.filter(filterRestaurants).map((restaurant) => (
             <HomepageCard key={restaurant.id} restaurant={restaurant} />
           ))}
