@@ -1,7 +1,5 @@
 import {
-  Center,
   Container,
-  Flex,
   Heading,
   Input,
   InputGroup,
@@ -9,8 +7,7 @@ import {
   SimpleGrid,
   Spinner,
 } from "@chakra-ui/react";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { HomepageCard } from "../../components";
 
