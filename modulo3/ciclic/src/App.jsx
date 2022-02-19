@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Home, Result } from "./components";
+import { Header, Home, Result } from "./components";
 
 const App = () => {
-  const [currentPage, setCurrentPage] = useState("home");
+  const [currentPage, setCurrentPage] = useState("result");
 
   function renderPage() {
     switch (currentPage) {
@@ -13,7 +13,12 @@ const App = () => {
     }
   }
 
-  return <>{renderPage()}</>;
+  return (
+    <>
+      <Header />
+      {renderPage()}
+    </>
+  );
 };
 
 export default App;
