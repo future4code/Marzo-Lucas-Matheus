@@ -9,16 +9,37 @@ import {
   NumberInputStepper,
   Stack,
 } from "@chakra-ui/react";
-import React from "react";
 
-export const Home = () => {
+export const Home = ({
+  setCurrentPage,
+  name,
+  setName,
+  payment,
+  setPayment,
+  time,
+  setTime,
+}) => {
   return (
     <Stack my={8} spacing={4}>
       <Heading textAlign="center">Simulador</Heading>
-      <Input placeholder="Nome" size="lg" />
-      <Input placeholder="Mensalidade" size="lg" />
+      <Input
+        placeholder="Nome"
+        size="lg"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <Input
+        placeholder="Mensalidade"
+        size="lg"
+        value={payment}
+        onChange={(e) => setPayment(Number(e.target.value))}
+      />
       <NumberInput min={1} max={36} size="lg">
-        <NumberInputField placeholder="Tempo" />
+        <NumberInputField
+          placeholder="Tempo"
+          value={time}
+          onChange={(e) => setTime(Number(e.target.value))}
+        />
         <NumberInputStepper>
           <NumberIncrementStepper />
           <NumberDecrementStepper />
@@ -29,6 +50,7 @@ export const Home = () => {
         textTransform="uppercase"
         size="lg"
         colorScheme="blue"
+        onClick={() => setCurrentPage("result")}
       >
         Simular
       </Button>
