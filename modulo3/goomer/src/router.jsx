@@ -8,10 +8,12 @@ export const Router = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    axios.get("http://challange.goomer.com.br/restaurants").then(({ data }) => {
-      setRestaurants(data);
-      setLoading(false);
-    });
+    axios
+      .get("https://challange.goomer.com.br/restaurants")
+      .then(({ data }) => {
+        setRestaurants(data);
+        setLoading(false);
+      });
   }, []);
 
   return (

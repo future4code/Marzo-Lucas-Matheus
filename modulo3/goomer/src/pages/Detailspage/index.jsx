@@ -31,7 +31,7 @@ export const Detailspage = () => {
 
   useEffect(() => {
     axios
-      .get(`http://challange.goomer.com.br/restaurants/${id}/menu`)
+      .get(`https://challange.goomer.com.br/restaurants/${id}/menu`)
       .then(({ data }) => {
         setRestaurantDetails(data);
         setRestaurantGroup(() =>
